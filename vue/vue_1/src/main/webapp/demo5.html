@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>v-on:事件修饰符</title>
+		<style>
+			#div {
+				background-color: red;
+				width: 300px;
+				height: 300px;
+			}
+		</style>
+		<script src="js/vue.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<form @submit.prevent action="http://www.itcast.cn" method="post" >
+				<input type="submit" value="提交">
+			</form>
+
+			<!--<form action="http://www.itcast.cn" method="post" onsubmit="return checkForm()">
+				<input type="submit" value="提交">
+			</form>-->
+			<br>
+			<div @mouseover="fun1" id="div">
+				<textarea @mouseover.stop="fun2($event)">这是一个文件域</textarea>
+			</div>
+		</div>
+	</body>
+	<script>
+		//view model
+		new Vue({
+			el: "#app",
+			methods:{
+				fun1:function () {
+					alert("鼠标移动到div上了")
+				},
+				fun2:function (event) {
+					alert("鼠标移动到textarea上了")
+					event.stopPropagation();
+				}
+			}
+		});
+		
+		//传统的js
+		function checkForm() {
+			alert(1)
+			//表单验证必须有一个明确的boolean类型返回值
+			//在应用验证方法时必须加上 return  方法名称
+			return true;
+		}
+	</script>
+
+</html>

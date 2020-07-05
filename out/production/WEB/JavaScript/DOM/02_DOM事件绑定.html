@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <!--<img id="light" src="img/off.gif" onclick="fun();">
+    <img id="light1" src="img/off.gif">
+
+    <script>
+        function fun() {
+            alert("我被点了");
+        }
+
+        function fun2() {
+            light.src = "img/on.gif";
+        }
+        var light = document.getElementById("light1");
+        light.onclick = fun2;
+    </script>-->
+    <img id="light" src="img/off.gif">
+    <script>
+        var light = document.getElementById("light");
+        var flag = false;//灯灭
+        light.onclick = function () {
+            if (flag) {
+                light.src = "img/off.gif";
+                flag = false;
+            } else {
+                light.src = "img/on.gif";
+                flag = true;
+            }
+        }
+    </script>
+</body>
+</html>

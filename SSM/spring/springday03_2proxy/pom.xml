@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>springday03_2proxy</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                      <!--  1.8JDK-->
+                      <target>1.8</target>
+                      <!--class用jdk1.8编译-->
+                      <source>1.8</source>
+                      <encoding>UTF-8</encoding>
+                    </configuration>
+                  </plugin>
+        </plugins>
+    </build>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <!--基于子类的动态代理-->
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.2.8</version>
+        </dependency>
+    </dependencies>
+
+</project>

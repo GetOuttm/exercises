@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*//window
+        window.alert("window");//提示框
+        var confirm = window.confirm("难");//确认框
+        if (confirm) {
+            alert("太难了")
+        } else {
+            alert("好难")
+        }
+        window.isNaN("222");
+        window.prompt("我他妈真是服了")//弹出文本
+        window.parseInt("123")*/
+    </script>
+</head>
+<body>
+    <input id="openBt" type="button" value="打开窗口">
+    <input id="closeBt" type="button" value="关闭窗口">
+
+    <script>
+        var newWindows;
+        var openBt = document.getElementById("openBt");
+        openBt.onclick = function () {
+            newWindows = open("https://www.baidu.com")
+        }
+
+        var closeBt = document.getElementById("closeBt");
+        closeBt.onclick = function () {
+            newWindows.close();
+        }
+    </script>
+</body>
+</html>

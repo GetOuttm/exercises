@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.accountaop"></context:component-scan>
+
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+    <!--配置QueryRunner-->
+    <bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype"></bean>
+
+    <!--配置数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--注入连接数据库的必备信息-->
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/springdb"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="123"></property>
+    </bean>
+
+    <!--&lt;!&ndash;配置aop&ndash;&gt;
+    <aop:config>
+        &lt;!&ndash;配置通用切入点表达式&ndash;&gt;
+        <aop:pointcut id="pt1" expression="execution(* com.accountaop.service.impl.*.*(..))"></aop:pointcut>
+        <aop:aspect id="txAdvice" ref="transactionManager">
+            &lt;!&ndash;配置前置通知：开启事务&ndash;&gt;
+            <aop:before method="beginTransaction" pointcut-ref="pt1"></aop:before>
+            &lt;!&ndash;配置后置通知：提交事务&ndash;&gt;
+            <aop:after-returning method="commitTransaction" pointcut-ref="pt1"></aop:after-returning>
+            &lt;!&ndash;配置异常通知：回滚事务&ndash;&gt;
+            <aop:after-throwing method="rollbackTransaction" pointcut-ref="pt1"></aop:after-throwing>
+            &lt;!&ndash;配置最终通知：释放连接&ndash;&gt;
+            <aop:after method="closeTransaction" pointcut-ref="pt1"></aop:after>
+        </aop:aspect>
+    </aop:config>-->
+</beans>

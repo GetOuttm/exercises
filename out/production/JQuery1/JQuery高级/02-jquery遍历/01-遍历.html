@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        //js遍历
+        /*$(function () {
+            var citys = $("#city li");
+            for (var i = 0;i < citys.length;i++) {
+                alert(i + ":" + citys[i].innerHTML);
+            }
+        });*/
+
+
+        //JQuery遍历
+        //1.对象.each(callback)
+        /*$(function () {
+            var citys = $("#city li");
+
+            citys.each(function (index,element) {
+                //获取li对象
+                alert($(this).html());
+                if ("上海" == $(this).html()){
+                    return false;
+                }
+                // alert(this.innerHTML);
+                // alert(index + ":" + element.innerHTML)
+                // alert(index + ":" + $(element).html())
+            });
+        });*/
+
+        //2.$.each(object,[callback])
+        /*$(function () {
+            var citys = $("#city li");
+
+            $.each(citys,function () {
+                alert($(this).html());
+            })
+        });*/
+
+
+        //3.for..of    JQuery3.0版本之后提供的方式
+        $(function () {
+            var citys = $("#city li");
+
+            for (li of citys) {
+                alert($(li).html());
+            }
+        });
+
+
+    </script>
+</head>
+<body>
+<ul id="city">
+    <li>北京</li>
+    <li>上海</li>
+    <li>天津</li>
+    <li>重庆</li>
+</ul>
+</body>
+</html>

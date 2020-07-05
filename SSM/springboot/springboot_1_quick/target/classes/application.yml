@@ -1,0 +1,46 @@
+# 普通数据的配置
+name: zhangsan
+
+# 配置对象
+person:
+  name: zhangsan
+  age: 18
+  address: beijing
+
+# 行内对象配置
+student: {name: zhangsan,age: 20,address: shanxi}
+
+
+# 配置集合 (普通字符串)
+city:
+  - beijing
+  - shanxi
+  - shanxi
+  - tianjin
+
+# city: {bejing,shanghai,tianjin}
+# 配置集合 (对象数据)
+account:
+  - name: tom
+    age: 80
+    address: shanxi
+  - name: res
+    age: 30
+    address: beijing
+
+# student: [{name: tom,age: 40,address: sahnxi},{name: tom,age: 40,address: sahnxi}]
+
+# Map配置
+map:
+  key1: value1
+  key2: value2
+
+# 配置集合
+
+
+
+server:
+  port: 8089
+
+# yml文件优先于yaml  properties文件执行
+# yml配置需要加空格

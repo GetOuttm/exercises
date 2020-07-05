@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>v-on:按键修饰符</title>
+
+		<script src="js/vue.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			Vue:<input type="text" v-on:keydown.enter="fun1">
+		</div>
+	</body>
+	<script>
+		//view model
+		new Vue({
+			el: "#app",
+			methods:{
+				fun1:function () {
+ 					alert("按下的是回车");
+				}
+			}
+		});
+
+
+	</script>
+
+</html>

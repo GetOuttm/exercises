@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+
+    <script>
+        /*
+            分析
+            1.点击超链接或者图片，需要换一张
+            2.给图片和超链接属性绑定单击事件
+            3.重新设置图片的src属性值
+        */
+        window.onload = function () {
+            //获取图片对象
+            var img = document.getElementById("checkCode");
+            //绑定单击事件
+            img.onclick = function () {
+                //添加时间戳
+                var time = new Date().getTime();
+                img.src = "/login/checkCodeServlet1?" + time;
+            }
+
+            //获取图片对象
+            var a = document.getElementById("change");
+            //绑定单击事件
+            a.onclick = function () {
+                //添加时间戳
+                var time = new Date().getTime();
+                a.href = "/login/regist.html";
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+    <img id="checkCode" src="/login/checkCodeServlet1"/>
+    <a id="change" href="">看不清换一张</a>
+
+</body>
+</html>

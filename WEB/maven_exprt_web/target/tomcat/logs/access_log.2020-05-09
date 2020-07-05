@@ -1,0 +1,12 @@
+0:0:0:0:0:0:0:1 - - [09/May/2020:09:29:59 +0800] "GET /maven_exprt_web HTTP/1.1" 302 - http-bio-8080-exec-3 0
+0:0:0:0:0:0:0:1 - - [09/May/2020:09:29:59 +0800] "GET /maven_exprt_web HTTP/1.1" 302 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [09/May/2020:09:30:00 +0800] "GET /maven_exprt_web/ HTTP/1.1" 200 52 http-bio-8080-exec-5 1272
+0:0:0:0:0:0:0:1 - - [09/May/2020:09:30:00 +0800] "GET /maven_exprt_web/ HTTP/1.1" 200 52 http-bio-8080-exec-6 1272
+0:0:0:0:0:0:0:1 - - [09/May/2020:09:31:17 +0800] "GET /maven_exprt_web/items/findDetail HTTP/1.1" 404 1029 http-bio-8080-exec-9 330
+0:0:0:0:0:0:0:1 - - [09/May/2020:09:33:24 +0800] "GET /maven_exprt_web/items/findDetail HTTP/1.1" 200 585 http-bio-8080-exec-1 1231
+0:0:0:0:0:0:0:1 - - [09/May/2020:09:33:35 +0800] "GET /maven_exprt_web/items/findDetail HTTP/1.1" 200 585 http-bio-8080-exec-2 16
+0:0:0:0:0:0:0:1 - - [09/May/2020:09:33:56 +0800] "GET /maven_exprt_web/items/findDetail HTTP/1.1" 200 585 http-bio-8080-exec-3 15
+0:0:0:0:0:0:0:1 - - [09/May/2020:09:33:57 +0800] "GET /maven_exprt_web/items/findDetail HTTP/1.1" 200 585 http-bio-8080-exec-4 0
+0:0:0:0:0:0:0:1 - - [09/May/2020:09:33:57 +0800] "GET /maven_exprt_web/items/findDetail HTTP/1.1" 200 585 http-bio-8080-exec-5 0
+0:0:0:0:0:0:0:1 - - [09/May/2020:09:33:58 +0800] "GET /maven_exprt_web/items/findDetail HTTP/1.1" 200 585 http-bio-8080-exec-6 0
+0:0:0:0:0:0:0:1 - - [09/May/2020:09:34:11 +0800] "GET /maven_exprt_web/items/findDetail HTTP/1.1" 200 585 http-bio-8080-exec-7 0

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06_json获取数据</title>
+
+    <script>
+        //1.定义基本格式
+        var person = {"name":"张三",age:23,'gender':true};
+        // alert(person);
+        // var name = person.name;
+        var name = person["name"];
+        // alert(name);
+
+
+        //2.嵌套格式  {}-->[]
+        var persons = {"persons":[
+                {"name":"张三","age":23,"gender":true},
+                {"name":"李四","age":23,"gender":true},
+                {"name":"王五","age":23,"gender":true}]};
+        // alert(persons)
+        //获取王五的值
+        var name1 = persons.persons[2].name;
+        // alert(name1)
+
+        //3.嵌套格式  []-->{}
+        var ps = [
+            {"name":"张三","age":23,"gender":true},
+            {"name":"李四","age":23,"gender":true},
+            {"name":"王五","age":23,"gender":true}];
+        // alert(ps);
+
+        //获取李四的值
+        alert(ps[1].name);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

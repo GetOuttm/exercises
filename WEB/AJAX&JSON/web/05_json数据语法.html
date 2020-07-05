@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05_json数据语法</title>
+    <script>
+        //JSON:JavaScript Object Notation		JavaScript对象表示法
+
+
+        //1.定义基本格式
+        var person = {"name":"张三",age:23,'gender':true};
+        // alert(person);
+
+        //2.嵌套格式  {}-->[]
+        var persons = {"persons":[
+                {"name":"张三","age":23,"gender":true},
+                {"name":"李四","age":23,"gender":true},
+                {"name":"王五","age":23,"gender":true}]};
+        // alert(persons)
+
+        //3.嵌套格式  []-->{}
+        var ps = [
+            {"name":"张三","age":23,"gender":true},
+            {"name":"李四","age":23,"gender":true},
+            {"name":"王五","age":23,"gender":true}];
+        alert(ps);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

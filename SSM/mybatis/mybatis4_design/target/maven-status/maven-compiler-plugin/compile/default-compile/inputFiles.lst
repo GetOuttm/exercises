@@ -1,0 +1,14 @@
+D:\IDEA\java\BigDemo\SSM\mybatis\mybatis4_design\src\main\java\org\ljf\mybatis\sqlsession\defaults\DefaultsSqlSessionFactory.java
+D:\IDEA\java\BigDemo\SSM\mybatis\mybatis4_design\src\main\java\org\ljf\domain\User.java
+D:\IDEA\java\BigDemo\SSM\mybatis\mybatis4_design\src\main\java\org\ljf\mybatis\sqlsession\SqlSession.java
+D:\IDEA\java\BigDemo\SSM\mybatis\mybatis4_design\src\main\java\org\ljf\mybatis\utils\DataSourceUtil.java
+D:\IDEA\java\BigDemo\SSM\mybatis\mybatis4_design\src\main\java\org\ljf\dao\IUserDao.java
+D:\IDEA\java\BigDemo\SSM\mybatis\mybatis4_design\src\main\java\org\ljf\mybatis\sqlsession\defaults\DefaultsSqlSession.java
+D:\IDEA\java\BigDemo\SSM\mybatis\mybatis4_design\src\main\java\org\ljf\mybatis\cfg\Configuration.java
+D:\IDEA\java\BigDemo\SSM\mybatis\mybatis4_design\src\main\java\org\ljf\mybatis\cfg\Mapper.java
+D:\IDEA\java\BigDemo\SSM\mybatis\mybatis4_design\src\main\java\org\ljf\mybatis\sqlsession\proxy\MapperProxy.java
+D:\IDEA\java\BigDemo\SSM\mybatis\mybatis4_design\src\main\java\org\ljf\mybatis\io\Resources.java
+D:\IDEA\java\BigDemo\SSM\mybatis\mybatis4_design\src\main\java\org\ljf\mybatis\sqlsession\SqlSessionFactory.java
+D:\IDEA\java\BigDemo\SSM\mybatis\mybatis4_design\src\main\java\org\ljf\mybatis\sqlsession\SqlSessionFactoryBuilder.java
+D:\IDEA\java\BigDemo\SSM\mybatis\mybatis4_design\src\main\java\org\ljf\mybatis\utils\Executor.java
+D:\IDEA\java\BigDemo\SSM\mybatis\mybatis4_design\src\main\java\org\ljf\mybatis\utils\XMLConfigBuilder.java

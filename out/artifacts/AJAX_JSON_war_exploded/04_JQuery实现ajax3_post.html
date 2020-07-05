@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04_JQuery实现ajax3_post</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        function fun() {
+            /**
+             * 使用$.post(url, [data], [callback], [type])方式实现异步请求
+             *    参数：
+             *      url:待载入页面的URL地址    请求路径
+             *      data:待发送 Key/value 参数。          请求参数
+             *      callback:载入成功时回调函数。         回调函数
+             *      type:返回内容格式，xml, html, script, json, text, _default    响应结果的类型
+             */
+            $.post(
+                "ajaxServlet",
+                {
+                    username:"rose"
+                },
+                function (data) {
+                    alert(data);
+                },
+                "text"
+            );
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="发送异步请求" onclick="fun();">
+
+    <input>
+</body>
+</html>

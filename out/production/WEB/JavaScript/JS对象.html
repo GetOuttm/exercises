@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*function fun(a,b) {
+            alert(a+b);
+        }
+        
+        var fun1 = function(a,b) {
+            alert(a*b);
+        }
+        fun1(2,3)
+        fun(3,4);*/
+        /*var sum = 0;
+        function  add() {
+
+
+            for (var i = 0;i< arguments.length;i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+        alert(add(1,2,3,4));*/
+
+        //Array
+        /*var arr = new Array(1,2,3);
+        var arr1 = new Array(5);
+        var arr2 = [1,2,3,4,5,6];
+        var arr3 = ['a',3,"我"];
+        document.write(arr + "<br>");
+        document.write(arr1 + "<br>");
+        document.write(arr2 + "<br>");
+        document.write(arr3 + "<br>");
+
+        document.write(arr3.join("--") + "<br>");
+        arr3.push("sdadsa",123)
+        document.write(arr3.join("--") + "<br>");*/
+
+        //Date
+        /*var data = new Date();
+        var date1 = new Date("2020/4/3 9:58:34")
+        var date2 = data.toLocaleString()
+        var date3 = data.toLocaleDateString()
+        var date4 = data.toLocaleTimeString()
+        document.write(data + "<br>")
+        document.write(date1 + "<br>")
+        document.write(date2 + "<br>")
+        document.write(date3 + "<br>")
+        document.write(date4 + "<br>")*/
+
+        //Math
+        /*document.write(Math.PI + "<br>")
+        //0.0-1.0之间的随机数  含头不含尾
+        document.write(Math.random() + "<br>")
+        document.write(Math.round(-1.5) + "<br>")
+        document.write(Math.ceil(1.5) + "<br>")
+        document.write(Math.floor(-1.5) + "<br>")
+        document.write(Math.floor(Math.random()*100)+1 + "<br>")*/
+
+        //RegExp
+        /*var reg = new RegExp("^\\w{6,12}$");
+        var reg1 = /^\w{6,12}$/;
+        document.write(reg + "<br>")
+        document.write(reg1 + "<br>")
+
+        var username = "zhangsan";
+        var flg = reg1.test(username);
+        alert(flg)*/
+
+        //Global
+        var str = "http:\\www.baidu.com?wd=李锦峰";
+        var encode = encodeURI(str);
+        document.write(encode + "<br>");
+        var decode = decodeURI(encode);
+        document.write(decode + "<br>");
+
+        var str1 = "http:\\www.baidu.com?wd=李锦峰";
+        var encode1 = encodeURIComponent(str1);
+        document.write(encode1 + "<br>");
+        var decode1 = decodeURIComponent(encode1);
+        document.write(decode1 + "<br>");
+
+        var str2 = "ss123dsadsa";
+        document.write(parseInt(str2) + "<br>");
+
+        document.write(isNaN(str2) + "<br>");
+
+        var jscode = "document.write(isNaN(str2) + \"<br>\");";
+        eval(jscode)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.b.dao.IUserDao">
+
+    <!--了解
+        抽取重复的sql语句-->
+    <sql id="defaultUser">
+        select * from user
+    </sql>
+
+    <select id="findAll" resultType="com.b.domain.User">
+        <include refid="defaultUser"></include>
+    </select>
+
+
+    <select id="findById" parameterType="Integer" resultType="com.b.domain.User">
+        select * from user where id = #{id}
+    </select>
+
+    <!--模糊查询可以使用
+        CONCAT('%',#{name},'%') 或者
+        "%"#{name}"%"  或者在java代码中使用百分号
+        '%${value}%'  参数必须是value-->
+    <select id="findByUsername" parameterType="String" resultType="com.b.domain.User">
+        select * from user where username like '%${value}%'
+    </select>
+
+
+    <!--z根据QueryVo中的条件查询用户z-->
+    <select id="findUserByVo" parameterType="com.b.domain.QueryVo" resultType="com.b.domain.User">
+        select * from user where username like "%"#{user.username}"%"
+    </select>
+
+    <!--根据条件查询-->
+    <!--<select id="findUserByCondition" resultType="com.b.domain.User" parameterType="user">
+        select * from user where 1 = 1
+        <if test="id!=null">
+           and id =#{id}
+        </if>
+        <if test="sex!=null">
+            and sex = #{sex}
+        </if>
+
+    </select>-->
+    <select id="findUserByCondition" resultType="com.b.domain.User" parameterType="user">
+        select * from user
+        <where>
+            <if test="id!=null">
+               and id =#{id}
+            </if>
+            <if test="sex!=null">
+                and sex = #{sex}
+            </if>
+        </where>
+    </select>
+
+    <!--collection  代表要遍历的集合元素，注意编写不要加#{}
+    open        代表语句的开始部分
+    close       代表结束部分
+    item          代表遍历集合的每个元素，生成变量名
+    separator       代表分隔符-->
+    <select id="findUserInIds" resultType="com.b.domain.User" parameterType="QueryVo">
+        <include refid="defaultUser"></include>
+        <where>
+            <if test="ids != null and ids.size() > 0">
+                <foreach collection="ids" open=" and id in(" close=")" item="id" separator=",">
+                    #{id}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+</mapper>

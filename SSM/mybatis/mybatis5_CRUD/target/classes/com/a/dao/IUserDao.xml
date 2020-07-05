@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.a.dao.IUserDao">
+    <select id="findAll" resultType="User">
+        select * from user
+    </select>
+
+    <!--保存用户-->
+    <insert id="saveUser" parameterType="com.a.domain.User">
+        <!--配置插入操作后获取插入数据的id -->
+        /*keyProperty  属性名称对应实体类
+        keyColumn   数据库id的值
+        resultType  数据类型
+        order  先做这件事还是后做    插入之后*/
+        <selectKey keyProperty="id" keyColumn="id" resultType="int" order="AFTER">
+            select last_insert_id();
+        </selectKey>
+        insert into user(username,address,sex,birthday) values (#{username},#{address},#{sex},#{birthday})
+    </insert>
+
+    <update id="updateUser" parameterType="com.a.domain.User">
+        update user set username=#{username},address=#{address},sex=#{sex},birthday=#{birthday} where id=#{id}
+    </update>
+    
+    
+    <delete id="deleteUser" parameterType="Integer">
+        delete from user where id=#{id}
+    </delete>
+    
+    <select id="findById" parameterType="Integer" resultType="com.a.domain.User">
+        select * from user where id = #{id}
+    </select>
+
+    <!--模糊查询可以使用
+        CONCAT('%',#{name},'%') 或者
+        "%"#{name}"%"  或者在java代码中使用百分号
+        '%${value}%'  参数必须是value-->
+    <select id="findByUsername" parameterType="String" resultType="com.a.domain.User">
+        select * from user where username like '%${value}%'
+    </select>
+
+    <select id="totalCount" resultType="int">
+        select count(1) from user
+    </select>
+
+
+    <!--z根据QueryVo中的条件查询用户z-->
+    <select id="findUserByVo" parameterType="com.a.domain.QueryVo" resultType="com.a.domain.User">
+        select * from user where username like "%"#{user.username}"%"
+    </select>
+</mapper>

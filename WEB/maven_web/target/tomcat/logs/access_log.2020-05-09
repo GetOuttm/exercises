@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [09/May/2020:16:18:37 +0800] "GET /maven_webhttps://home.firefoxchina.cn HTTP/1.1" 404 - http-bio-8888-exec-1 0
+0:0:0:0:0:0:0:1 - - [09/May/2020:16:18:37 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8888-exec-2 0
+0:0:0:0:0:0:0:1 - - [09/May/2020:16:18:53 +0800] "GET /maven_web/items/findDetail HTTP/1.1" 404 1003 http-bio-8888-exec-3 10
+0:0:0:0:0:0:0:1 - - [09/May/2020:16:18:53 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8888-exec-4 0
+0:0:0:0:0:0:0:1 - - [09/May/2020:16:19:08 +0800] "GET /maven_web/items/findDetail HTTP/1.1" 404 1003 http-bio-8888-exec-6 0
+0:0:0:0:0:0:0:1 - - [09/May/2020:22:12:34 +0800] "GET /maven_web/myServlet HTTP/1.1" 200 98 http-bio-8888-exec-1 2283
+0:0:0:0:0:0:0:1 - - [09/May/2020:22:13:27 +0800] "GET /maven_web/myServlet HTTP/1.1" 200 98 http-bio-8888-exec-1 207

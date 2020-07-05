@@ -1,0 +1,12 @@
+# mysql
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/crawler?useUnicode=true&characterEncoding=UTF-8&&useSSL=true
+    username: root
+    password: 123
+
+
+
+#   该网址代码https://www.jianshu.com/p/5eedb921c4d9

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>快速入门</title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{message}}<!--Vue的插值表达式，把data中定义的数值显示到此处-->
+
+			<!--三元运算符-->
+			{{false ? "OK" : "NO"}}
+
+			<!--数学运算-->
+			{{number*3.14}}
+
+			<!--插入值运算不支持
+			{{var a = 1;}}
+			不支持
+			{{if(a=10){}}-->
+		</div>
+	</body>
+	<script>
+		//view model
+		//创建vue对象
+		new Vue({
+			el:"#app",//由vue接管id为app区域
+			data:{
+				message:"Hello Vue!",/*//注意。此处不要加分号*/
+				number:100
+			}
+		});
+	</script>
+</html>

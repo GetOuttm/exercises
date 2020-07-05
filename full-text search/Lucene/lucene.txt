@@ -1,0 +1,131 @@
+一、什么是全文检索
+1.数据的分类
+    1)结构化数据
+        格式固定、长度固定、数据类型固定
+        例如数据库中的数据
+    2)非结构化数据
+        word文档、pdf文件、邮件、html、xml、txt
+        格式不固定、长度不固定、数据类型不固定
+2.数据的查询
+    1)结构化数据的查询
+        SQL查询，查询结构化数据的方法。简单、速度快
+    2)非结构化数据的查询
+        从文本文件中找出要查询名称的文件
+        1.目测  文件少
+        2.使用程序把文件读取到内存中，匹配字符串    顺序扫描   文件多的话耗内存，时间长
+        3.把非结构化数据转换为结构化数据
+            先根据空格将字符串拆分，得到一个单词列表，基于单词列表创建一个索引(为了提高查询效率，创建某种数据结构的集合)
+            然后查询索引。根据单词和文档的对应关系找到文档列表。这个过程就叫全文检索
+3.全文检索的概念
+    先创建索引然后查询索引的过程叫做全文检索
+    索引一次创建多次使用，表现为每次查询速度块
+
+二、全文检索的应用场景
+1.搜索引擎
+    百度、360搜索、谷歌、搜狗
+2.站内搜索
+    论坛搜索、微博、文章搜索、
+3.电商搜索
+    淘宝搜索、京东搜索
+4.只要有搜索的地方就可以用全文检索
+
+三、什么是Lucene
+    Lucene是一个基于java开发的全文检索工具包
+
+四、Lucene实现全文检索的流程
+1.创建索引
+    1)获取文档
+        原始文档：要基于那些数据进行搜索，那么这些数据就是原始文档
+        搜索引擎：使用爬虫获取原始文档
+        站内搜索：数据库中的数据
+        案例：磁盘中的文件，使用io流读取磁盘上的文件
+    2)构建文档对象
+        对应每个原始文档创建一个Document对象
+        每个Document对象中包含多个域(field)
+        域中保存就是原始文档数据
+            域的名称
+            域的值
+        每个文档都有一个唯一的编号，就是文档id
+    3)分析文档
+        就是分词的过程
+        1.先根据空格将字符串拆分。得到一个单词列表
+        2.把单词统一转换为大写或小写
+        3.去除标点符号
+        4.去除停用词(无意义的词)
+        每个关键词都封装成一个Term对象中
+            Term中包含两部分内容：
+                关键词所在的域
+                关键词本身
+            不同的域中拆分出来的相同的关键词是不同的Term
+    4)创建索引
+        基于上述拆分出来的关键词列表创建一个索引，保存到索引库中
+        索引库中包含
+            索引
+            document对象
+            关键词和索引的对应关系
+        正常时先查找文档在查找词语
+        通过词语找文档，这种索引的结构叫倒排索引结构
+2.查询索引
+    1)用户查询接口
+        用户输入查询条件的地方
+        例如：百度的输入框
+    2)把关键词封装成一个查询对象
+        要查询的域
+        要搜索的关键词
+    3)执行查询
+        根据要查询的关键词到对应的于上进行搜索
+        找到关键词，根据关键词找到对应的文档
+    4)渲染结果
+        根据文档id找到文档对象，对关键词进行高亮显示，分页处理...最终展示给用户
+五、入门程序
+1.创建索引
+   LuceneTwo.createIndex()
+2.使用luck工具查看索引库中的内容   跟lucene版本号保持一致，但是luck工具要求jdk1.9
+3.查询索引
+    LuceneTwo.searchIndex()
+
+六、分析器
+    默认使用的是标准分析器StandardAnalyzer   IndexWriterConfig-->public IndexWriterConfig() {
+                                                              this(new StandardAnalyzer());
+                                                          }
+1.查看分析器的分析效果
+    使用Analyzer的一个方法tokenStream返回一个TokenStream对象，词对象中包含了最终分词结果。
+    实现步骤：
+        1创建一个Analyzer对象。StandardAnalyzer 对象
+        2使用分析其的tokenStream方法获取TokenStream对象
+        3向tokenStream对象中设置一个引用，相当于一个指针
+        4调用tokenStream对象的方法rest方法，如果不调用抛异常
+        5使用while循环遍历tokenStream对象
+        6关闭tokenStream对象
+    LuceneTwo.TokenStream
+
+2.IK-Analyzer的使用方法
+    把IK-Analyzer添加到工程当中
+    把配置文件和扩展词典添加到工程中
+    注意：扩展词典严禁使用windows记事本编辑，保证扩展词典的格式是utf-8
+    扩展词典：添加一些新词
+    停用词词典：敏感词、无意义的词
+
+七、索引库的维护
+1.添加文档
+    IndexManger.addDocument
+2.删除索引库
+    删除全部             IndexManger.delAllDocument
+    根据关键词删除         IndexManger.delDocumentByQuery
+3.更新索引库
+    IndexManger.updateDocument
+
+八、索引查询
+1.使用Query的子类
+    1)TermQuery
+        根据关键词进行查询
+        需要制定查询的域以及要查询的关键词
+    2)RangeQuery                SearchIndex.testRangeQuery
+        范围查询
+2.使用QueryParser查询           SearchIndex.testQueryParser
+        对需要查询的先分词然后再基于分词的结果查询
+        添加<dependency>
+                      <groupId>org.apache.lucene</groupId>
+                      <artifactId>lucene-queryparser</artifactId>
+                      <version>8.0.0</version>
+                  </dependency>

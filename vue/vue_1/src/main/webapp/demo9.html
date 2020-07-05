@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>v-model</title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<form action="" method="post">
+				用户名:<input type="text" name="username" v-model="user.username"><br>
+				密码:<input type="text" name="password" v-model="user.password">
+			</form>
+		</div>
+	</body>
+	<script>
+		//view model
+		new Vue({
+			el:"#app",
+			data:{
+				user:{
+					username:"zhangsan",
+					password:"123"
+				}
+			}
+		});
+	</script>
+</html>

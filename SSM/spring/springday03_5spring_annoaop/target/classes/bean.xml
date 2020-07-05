@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+   <!-- 配置spring容器创建时扫描的包-->
+    <context:component-scan base-package="com.annoaop"></context:component-scan>
+
+    <!--配置spring开启注解aop的支持-->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+
+    <!--以上两个配置可以省略，添加配置类，至于开启aop注解的配置，添加@EnableAspectJAutoProxy-->
+
+    <!--&lt;!&ndash;配置aop&ndash;&gt;
+    <aop:config>
+        &lt;!&ndash; 切入点表达式定义   id属性用于指定表达式的唯一标识。expression属性用于指定表达式内容
+              此标签写在aop:aspect标签内部只能当前切面使用。
+              它还可以写在aop:aspect外面，此时就变成了所有切面可用 &ndash;&gt;
+        <aop:pointcut id="aopPointcut" expression="execution(* com.annoaop.service.impl.*.*(..))"/>
+        &lt;!&ndash; 切面配置 &ndash;&gt;
+        <aop:aspect id="aopLoggerAdvice" ref="logger">
+            &lt;!&ndash; 【环绕通知】 配置环绕通知 详细的注释请看Logger类中&ndash;&gt;
+            <aop:around method="arroudLogger" pointcut-ref="aopPointcut"/>
+&lt;!&ndash;            &lt;!&ndash; 【前置通知】 配置前置通知：在切入点方法执行之前执行 &ndash;&gt;&ndash;&gt;
+&lt;!&ndash;            <aop:before method="beforeLogger" pointcut-ref="aopPointcut" />&ndash;&gt;
+&lt;!&ndash;            &lt;!&ndash; 【后置通知】 配置后置通知：。无论切入点方法是否正常执行它都会在其后面执行&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;            <aop:after method="afterLogger" pointcut-ref="aopPointcut"/>&ndash;&gt;
+&lt;!&ndash;            &lt;!&ndash; 【返回后通知】 配置最终通知：   它和异常通知永远只能执行一个&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;            <aop:after-returning method="afterReturingLogger" pointcut-ref="aopPointcut"/>&ndash;&gt;
+&lt;!&ndash;            &lt;!&ndash; 异常通知 配置异常通知：在切入点方法执行产生异常之后执行。它和返回后通知永远只能执行一个&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;            <aop:after-throwing method="afterThrowingLogger" pointcut-ref="aopPointcut"/>&ndash;&gt;
+        </aop:aspect>
+    </aop:config>-->
+
+    <!--正常情况
+
+    Around start
+    @Before...
+    method invoke
+    Around end
+    @After...
+    @AfterReturning...
+
+    有异常的情况
+
+    Around start
+    @Before...
+    method invoke
+    @After...
+    @AfterThrowing...
+
+    try{
+        try{
+            //@Before
+            method.invoke(..);
+        }finally{
+            //@After
+        }
+        //@AfterReturning
+    }catch(){
+        //@AfterThrowing
+    }-->
+
+</beans>

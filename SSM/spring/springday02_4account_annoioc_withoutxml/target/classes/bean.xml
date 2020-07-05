@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+   <!-- &lt;!&ndash;告知spring容器在创建时需要扫描的包&ndash;&gt;
+    <context:component-scan base-package="com.withoutxml"/>
+
+    &lt;!&ndash;配置QueryRunner&ndash;&gt;
+    <bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
+        &lt;!&ndash;注入数据源    构造函数注入&ndash;&gt;
+        <constructor-arg name="ds" ref="dataSource"></constructor-arg>
+    </bean>
+
+    &lt;!&ndash;配置数据源&ndash;&gt;
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        &lt;!&ndash;注入连接数据库的必备信息&ndash;&gt;
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/springdb"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="123"></property>
+    </bean>-->
+</beans>

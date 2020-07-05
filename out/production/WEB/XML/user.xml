@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<?xml-stylesheet type='text/css' href='a.css' ?>
+<!--指令：结合css-->
+<!--
+    version:编码号  必须的属性
+    encoding:编码格式   告知解析引擎当前使用的字符集，默认是：ISO-8859-1
+    standalone:是否独立
+        取值： yes 不依赖其他文件
+              no  依赖其他文件
+-->
+
+<users>
+    <user id="1">
+        <name>zhangsan</name>
+        <age>23</age>
+        <gender>ma</gender>
+    </user>
+    <user id="2">
+        <name>zhangsan</name>
+        <age>23</age>
+        <gender>ma</gender>
+        <code>
+            <![CDATA[
+                if(a>b && a<b) {}
+            ]]>
+        </code>
+    </user>
+</users>

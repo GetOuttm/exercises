@@ -1,0 +1,9 @@
+public void 基础加强.注解.demo.Calculator.add()类add方法出现异常了
+异常的名称:NullPointerException
+异常的原因:null
+==========================
+public void 基础加强.注解.demo.Calculator.div()类div方法出现异常了
+异常的名称:ArithmeticException
+异常的原因:/ by zero
+==========================
+本次测试出现2次异常

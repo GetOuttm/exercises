@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 配置spring创建容器时要扫描的包 -->
+    <context:component-scan base-package="org.exception"></context:component-scan>
+    <!-- 配置视图解析器
+        当控制器返回视图名称时候，利用视图解析器拼接前后缀，找到视图对象
+			如:控制器返回view时候，拼接前后缀以后/WEB-INF/jsp/view.jsp   用于定位jsp文件
+    -->
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <!--配置异常处理器-->
+    <bean id="sysExceptionResolver" class="com.exception.ex.SysExceptionResolver"></bean>
+
+    <!-- 配置spring开启注解mvc的支持
+        默认适配器、映射器、处理器生效，加入了自定义转换器让其生效
+    -->
+    <mvc:annotation-driven></mvc:annotation-driven>
+</beans>

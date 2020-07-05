@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--告知spring容器在创建时需要扫描的包-->
+    <context:component-scan base-package="com.annoioc"/>
+
+    <!--配置QueryRunner-->
+    <bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
+        <!--注入数据源    构造函数注入-->
+        <constructor-arg name="ds" ref="db"></constructor-arg>
+    </bean>
+
+    <!--配置数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--注入连接数据库的必备信息-->
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/springdb"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="123"></property>
+    </bean>
+
+    <!-- 利用Spring读取Properties文件  location：位置，定位，这里是文件位置 -->
+    <util:properties id="jdbc" location="classpath:jdbcConfig.properties"></util:properties>
+
+    <bean id="db" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!-- 读取jdbc的driver属性，将值赋值给dirverClassName属性 -->
+        <property name="driverClass" value="#{jdbc.driver}"></property>
+        <property name="jdbcUrl" value="#{jdbc.url}"></property>
+        <property name="user" value="#{jdbc.user}"></property>
+        <property name="password" value="#{jdbc.password}"></property>
+    </bean>
+</beans>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <artifactId>maven_ssm</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <artifactId>maven_example_dao</artifactId>
+
+    <!--上传到私服   本机使用localhost，公司改地址-->
+    <!--[ERROR] Failed to execute goal org.apache.maven.plugins:maven-deploy-plugin:2.7:deploy (default-deploy) on project maven_example_dao: Failed to dep
+    loy artifacts: Could not transfer artifact org.example:maven_example_dao:jar:1.0-20200509.093019-1 from/to nexus (http://localhost:8081/nexus/conte
+    nt/repositories/snapshots/): Transfer failed for http://localhost:8081/nexus/content/repositories/snapshots/org/example/maven_example_dao/1.0-SNAPS
+    HOT/maven_example_dao-1.0-20200509.093019-1.jar 401 Unauthorized -> [Help 1]
+        401表示该用户没有权限。
+        400表示没有给该用户赋权限（allowed deploy）
+
+        命令行输入
+            mvn clean package deploy
+            mvn deploy   都可以
+    -->
+
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+
+            <url>http://localhost:8081/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+
+            <url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>
