@@ -138,7 +138,7 @@
             <!--项目的名称-->
             <artifactId>junit</artifactId>
             <!--版本-->
-            <version>4.12</version>
+            <version>4.13.1</version>
             <!--作用域范围-->
             <scope>test</scope>
         </dependency>
